@@ -3,8 +3,8 @@ package Leetcode.arr;
 import java.util.HashSet;
 import java.util.Scanner;
 
+//数组中某些项之和可以整除6，返回这个组合之和最大时的和
 public class SubArrSumMod6 {
-
 
     HashSet<Integer> set=null;//set保存sum减去的项的索引
     public static int six(int sum,int[] nums,HashSet<Integer> set){

@@ -13,6 +13,7 @@ public class QuickSort {
         return arr;
     }
 
+    //给基准数据找出正确索引的过程，选第一个数arr[left]为基准数据
     public int getIndex(int[] arr,int left,int right){
         int temp = arr[left];
         while (left<right){
@@ -25,7 +26,7 @@ public class QuickSort {
             }
             arr[right]=arr[left];
         }
-        arr[left]=temp;
+        arr[left]=temp;//此时left==right，且为tmp的正确位置
         return left;
     }
 

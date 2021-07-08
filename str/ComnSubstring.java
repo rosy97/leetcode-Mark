@@ -1,5 +1,7 @@
 package Leetcode.str;
 
+
+//公共最长子串
 public class ComnSubstring {
 
     //动态规划

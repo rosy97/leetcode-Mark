@@ -2,7 +2,7 @@ package Leetcode.tree;
 
 public class LatterOfBST {
     public boolean latterOfBST(int [] sequence,int start,int rootIndex) {
-        //start为数组第一项的索引，root为数组最后一项的索引
+        //start为数组第一项的索引，rootIndex为数组最后一项的索引
         if(start>=rootIndex)//终止条件！！！
             return true;
         int i;

@@ -1,5 +1,6 @@
 package Leetcode.linkedlist;
 
+//空间O(1) 逆序打印链表
 public class ReprintLinkedList {
     public static void reprint(ListNode node){
         if(node.next==null){

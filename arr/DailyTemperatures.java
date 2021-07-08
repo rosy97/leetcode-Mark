@@ -29,6 +29,9 @@ public class DailyTemperatures {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(Integer.valueOf('A'));
+        System.out.println((char) (26+64));
+        StringBuilder sb = new StringBuilder();
+        sb.reverse();
     }
 }

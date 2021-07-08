@@ -11,16 +11,16 @@ import java.util.List;
 //划分结果为 "ababcbaca", "defegde", "hijhklij"。
 public class PartLabels {
     //划分字母区间
-    public List<Integer> partitionLabels(String S) {
+    public static List<Integer> partitionLabels(String S) {
         int[] lastIdx = new int[26];
         for(int i=0;i<S.length();i++){
-            lastIdx[S.charAt(i)-'a']=i;
+            lastIdx[S.charAt(i)-'a']=i;//lastIdx记录26个字母出现的最后一次的索引
         }
         List<Integer> res = new ArrayList<>();
         int start=0,end=0;
         for(int i=0;i<S.length();i++){
-            end=Math.max(end,lastIdx[S.charAt(i)-'a']);
-            if(i==end){
+            end=Math.max(end,lastIdx[S.charAt(i)-'a']);//end记录：当前项i 最后一次出现的索引
+            if(i==end){//划分条件
                 res.add(end-start+1);
                 start=end+1;
             }
@@ -41,5 +41,6 @@ public class PartLabels {
         });
         System.out.println(list.toString());
 
+        System.out.println(partitionLabels("ababcbacadefegdehijhklij").toString());
     }
 }

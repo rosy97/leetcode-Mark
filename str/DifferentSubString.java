@@ -36,6 +36,26 @@ public class DifferentSubString {
         return s.substring(left,right);
     }
 
+    //滑动窗口
+    public static String moveWind(String s){
+        HashSet<Character> set = new HashSet<>();
+        int start=0,j=0;
+        int len=0,begin=-1,end=-1;
+        for(;start<s.length();start++){
+            while (j<s.length() && !set.contains(s.charAt(j))){
+                set.add(s.charAt(j));
+                j++;
+            }
+            if(j-start>len){
+                len=j-start;
+                begin=start;
+                end=j;
+            }
+            set.remove(s.charAt(start));
+        }
+        return s.substring(begin,end);
+    }
+
     //动态规划
     public static String def1(String s){
         String[] dp = new String[s.length()];//dp[i-1]表示s长度为 i 时的最长不重复子串
@@ -59,5 +79,6 @@ public class DifferentSubString {
         System.out.println(def("dsaffgdxcvb"));
 
         System.out.println(def1("dsaffgdxcvb"));
+        System.out.println(moveWind("dsaffgdxcvb"));
     }
 }

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 //01完全背包
+//背包容量为m，在一组重量为w[]的物品中，是否存在一种组合刚好装满背包（任意一组）
 public class SubArrSumEqualTarget {
     public static HashSet<Integer> set;
     public static String isOk(int m, int[] w, HashSet<Integer> set){
@@ -56,6 +57,7 @@ public class SubArrSumEqualTarget {
         for(int i = 0; i < n; i++){
             w[i]=sc.nextInt();
         }
+//        System.out.println(isOk(m, w, new HashSet<>()));
         System.out.println(isOk1(m, w, new HashSet<>()));
     }
 }

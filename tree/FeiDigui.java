@@ -1,5 +1,7 @@
 package Leetcode.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 //非递归遍历
@@ -28,7 +30,6 @@ public class FeiDigui {
             }
         }
     }
-
     //先序，根左右
     public static void pre(TreeNode root){
         Stack<TreeNode> stack = new Stack<>();
@@ -48,8 +49,7 @@ public class FeiDigui {
             }
         }
     }
-
-    //后序，左右根
+    //后序1，左右根
     public static void last1(TreeNode root) {
         Stack<TreeNode> stack1 = new Stack<>();
         Stack<Integer> stack2 = new Stack<>();
@@ -74,9 +74,8 @@ public class FeiDigui {
             }
         }
     }
-
     //后序，左右根
-    public static void postOrderTraversalWithStack(TreeNode root) {
+    public static void last(TreeNode root) {
         Stack<TreeNode> src = new Stack<>();
         Stack<TreeNode> re = new Stack<>();
         //将节点push进src
@@ -96,8 +95,55 @@ public class FeiDigui {
             System.out.print(re.pop().val + " ");
         }
     }
+    //层序
+    public static void level(TreeNode root){
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            TreeNode cur = queue.poll();
+            System.out.print(cur.val+"\t");
+            if(cur.left!=null)
+                queue.offer(cur.left);
+            if(cur.right!=null)
+                queue.offer(cur.right);
+        }
+    }
+
+    //递归先序：根左右
+    public static void preOut(TreeNode root){
+        if(root!=null){
+            System.out.print(root.val+" ");
+            if(root.left!=null)
+                preOut(root.left);
+            if(root.right!=null)
+                preOut(root.right);
+        }
+    }
+    //递归中序：左根右
+    public static void midOut(TreeNode root){
+        if(root!=null){
+            if(root.left!=null)
+                midOut(root.left);
+            System.out.print(root.val+" ");
+            if(root.right!=null)
+                midOut(root.right);
+        }
+    }
+    //递归后序：左右根
+    public static void lastOut(TreeNode root){
+        if(root!=null){
+            if(root.left!=null)
+                lastOut(root.left);
+            if(root.right!=null)
+                lastOut(root.right);
+            System.out.print(root.val+" ");
+        }
+    }
+    //递归层序
+    public static void levelOut(TreeNode root){
 
 
+    }
 
     public static void main(String[] args) {
         TreeNode node1=new TreeNode(1);
@@ -113,7 +159,20 @@ public class FeiDigui {
         node2.right=node5;
         node3.left=node6;
         node3.right=node7;
+
+        //递归遍历
+        preOut(node1);
+        System.out.println();
+        midOut(node1);
+        System.out.println();
+        lastOut(node1);
+        System.out.println();
+
+        //非递归遍历
         last1(node1);
-        postOrderTraversalWithStack(node1);
+        System.out.println();
+        last(node1);
+        System.out.println();
+        level(node1);
     }
 }
