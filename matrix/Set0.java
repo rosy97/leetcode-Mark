@@ -1,4 +1,4 @@
-package Leetcode.Matrix;
+package Leetcode.matrix;
 
 public class Set0 {
     public void setZeroes(int[][] matrix) {
