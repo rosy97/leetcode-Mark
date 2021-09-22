@@ -3,7 +3,7 @@ package Leetcode.tree;
 
 public class DepthOfTree {
     
-    public int depth(TreeNode root){//递归：求树的深度
+    public int depth(Leetcode.tree.TreeNode root){//递归：求树的深度
         if(root==null)
             return 0;
         int left = depth(root.left);
@@ -11,7 +11,7 @@ public class DepthOfTree {
         return 1+(left>right?left:right);
     }
 
-    public int balanceDepth(TreeNode root){//判断是否为平衡二叉，并返回树的深度，非平衡返回-1
+    public int balanceDepth(Leetcode.tree.TreeNode root){//判断是否为平衡二叉，并返回树的深度，非平衡返回-1
         if(root==null)
             return 0;
         int left = balanceDepth(root.left);
